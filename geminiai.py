@@ -57,6 +57,3 @@ class Ask():
         self.chat_session.history.append({"role": "model", "parts": [model_response]})
         return model_response
 
-# obj = Ask( "is there any mi,stakes", "how are you")
-# print(obj.ask())
-# print(ask("python dilini bana anlat temel seviye bir proje örneği geliştir"))

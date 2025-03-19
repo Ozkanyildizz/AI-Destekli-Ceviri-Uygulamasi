@@ -1,6 +1,6 @@
 # AI Destekli Çeviri Uygulaması
 
-Bu proje, metin çevirisi ve yapay zeka tabanlı sorulara yanıtlar almak için bir uygulama geliştirilmesini sağlar. Uygulama, **CustomTkinter** ile tasarlanmış bir arayüze sahiptir ve **Google Translate API** ve **Geminiai AI** ile güçlendirilmiştir.
+Bu proje, herhangi bir web sitesi veya belgeden kopyaladığınız metni otomatik olarak alarak çevirisini yapmanızı ve bu metinle ilgili yapay zeka tarafından yanıtlar almanızı sağlamak üzere tasarlanmıştır. Uygulama, **CustomTkinter** kullanılarak şık bir arayüze sahip olup, **Google Translate API** ve **Geminiai AI** teknolojileriyle güçlendirilmiştir.
 
 ## Özellikler
 
