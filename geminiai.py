@@ -10,8 +10,8 @@ class Ask():
     
         load_dotenv()
 
-        genai.configure(api_key=os.getenv("API_KEY"))
-      
+        genai.configure(api_key=os.getenv("API_KEY")) 
+        
         generation_config = {
   "temperature": 0.5,
   "top_p": 0.95,

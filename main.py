@@ -13,6 +13,9 @@ class TranslatorApp:
         self.app = root
         self.app.title("AI Destekli Çeviri")
         self.app.geometry("900x700")
+
+        # self.app.iconbitmap("/Directory/icon.ico")
+
      
         # CustomTkinter temasını ayarla
         ctk.set_appearance_mode("dark")
