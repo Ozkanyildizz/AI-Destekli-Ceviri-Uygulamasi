@@ -3,10 +3,10 @@ import pyperclip
 import threading
 import time
 from googletrans import Translator, LANGUAGES
-from tkinter import  messagebox
+from tkinter import  messagebox, filedialog
 import geminiai
 import asyncio
-
+from extractText import OCRReader
 
 class TranslatorApp:
     def __init__(self, root):
@@ -60,6 +60,10 @@ class TranslatorApp:
         self.translate_button = ctk.CTkButton(self.scrollable_frame, text="Metni Çevir", command=self.handle_translate, corner_radius=10, font=("Arial", 14), fg_color="#4b4b4b", hover_color="#333333")
         self.translate_button.pack(pady=10)
 
+        #text extract buton
+        self.text_extract_button = ctk.CTkButton(self.scrollable_frame, text="Resimden metin kopyala", command=self.handle_extract, corner_radius=10, font=("Arial", 14), fg_color="#4b4b4b", hover_color="#333333")
+        self.text_extract_button.pack(pady=10)
+
         # Yapay zeka cevabını gösteren kutu
         self.result_box = ctk.CTkTextbox(self.scrollable_frame, width=800, height=300, font=("Arial", 16))
         self.result_box.pack(pady=10)
@@ -83,7 +87,7 @@ class TranslatorApp:
                     self.text_box.delete("1.0", ctk.END)
                     self.text_box.insert(ctk.END, current_text)
             except Exception as e:
-                print("Clipboard hatası:", e)
+                messagebox.showerror("Hata", f"Clipboard hatası: {e}")
             time.sleep(0.5)
 
     def ask_ai(self):
@@ -119,7 +123,23 @@ class TranslatorApp:
         except Exception as e:
             messagebox.showerror("Hata", f"Çeviri hatası: {e}")
 
-   
+    def extract(self):
+        tesseract_path = "C:\Program Files\Tesseract-OCR\\tesseract.exe"
+
+        try:
+            reader = OCRReader(tesseract_path)
+            file_path = filedialog.askopenfilename(
+            title="Bir resim dosyası seçin",
+            filetypes=[("Image files", "*.png;*.jpg;*.jpeg;*.bmp;*.tiff")])
+            extracted_text = reader.extract_text(file_path)
+
+            self.text_box.delete("1.0", ctk.END)
+            self.text_box.insert(ctk.END, extracted_text)
+        except Exception as e:
+            messagebox.showerror("Hata", f"Metin alınamadı: {e}")
+
+    def handle_extract(self):
+        threading.Thread(target=self.extract).start()
     def handle_ask(self):
         threading.Thread(target=self.ask_ai).start()
 

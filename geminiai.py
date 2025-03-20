@@ -3,7 +3,6 @@ import google.generativeai as genai
 
 from dotenv import load_dotenv
 class Ask():
-    
     def __init__(self, question,text):
         self.question = question
         self.text = text
@@ -57,3 +56,4 @@ class Ask():
         self.chat_session.history.append({"role": "model", "parts": [model_response]})
         return model_response
 
+  
