@@ -44,14 +44,6 @@ Bu projeyi çalıştırabilmek için aşağıdaki Python kütüphanelerinin yük
 
 ```bash
 pip install -r requirements.txt
-# AI Destekli Çeviri Uygulaması
-
----
-
-## 🚀 Özellikler
-- **Clipboard İzleme:** Panodaki metni otomatik olarak algılar ve gösterir.  
-- **Yapay Zeka Desteği:** Metin tabanlı soruları yapay zeka ile cevaplar.  
-- **Metin Çevirisi:** Google Translate API kullanarak metin çevirisi yapar.  
-- **OCR Desteği:** Görsellerden metin çıkarır ve metni metin kutusuna yazar.  
+```
 
 
